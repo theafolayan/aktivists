@@ -14,7 +14,16 @@ class CreateOpportunitiesTable extends Migration
     public function up()
     {
         Schema::create('opportunities', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('title');
+            $table->string('email');
+            $table->string('opportunity-type');
+            $table->string('category');
+            $table->string('location');
+            $table->string('application-url');
+            $table->text('body');
+            $table->text('views');
+            $table->date('deadline');
             $table->timestamps();
         });
     }

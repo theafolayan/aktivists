@@ -18,3 +18,18 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', function(){
+    Auth::logout();
+    return view('index');
+});
+// Route::get('login', function () {
+//     return redirect('/auth');
+    
+// });
+Route::get('auth', function () {
+    return view('auth.login');
+    
+});
+Route::get('post-opportunity', function () {
+    return view('organisation.post-opportunity');
+});

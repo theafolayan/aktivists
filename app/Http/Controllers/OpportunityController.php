@@ -46,7 +46,12 @@ class OpportunityController extends Controller
      */
     public function show(Opportunity $opportunity)
     {
-        //
+        $opportunity = Opportunity::find($id); // fetch post from database
+        $opportunity->increment('views'); // add a new page view to our `views` column by incrementing it
+
+        return view('oppurtunity.show', [
+            'opportunity' => $opportunity,
+        ]);
     }
 
     /**

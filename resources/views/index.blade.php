@@ -5,14 +5,15 @@
 <!-- Basic Page Needs
 ================================================== -->
 <meta charset="utf-8">
-<title>Work Scout</title>
+<title>Aktivists</title>
 <!-- Mobile Specific Metas
 ================================================== -->
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <!-- CSS
 ================================================== -->
-<link rel="stylesheet" href="themes/workscout_2019/css/style.css">
-<link rel="stylesheet" href="themes/workscout_2019/css/colors.css">
+{{-- <link rel="stylesheet" href="{{ asset('/themes/workscout_2019/css/style.css') }}"> --}}
+<link rel="stylesheet" href="{{ asset('style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/colors.css') }}">
 </head>
 <body>
 <div id="wrapper">
@@ -23,7 +24,7 @@
 	<div class="sixteen columns">
 		<!-- Logo -->
 		<div id="logo">
-			<h1><a href="index.html"><img src="themes/workscout_2019/images/logo2.png" alt="Work Scout" /></a></h1>
+			<h1><a href="index.html"><img src="{{ asset('img/logo2.png')}}" alt="Work Scout" /></a></h1>
 		</div>
 		<!-- Menu -->
 		<nav id="navigation" class="menu">
@@ -31,21 +32,12 @@
 				<li><a id="current" href="index.html">Home</a>
 					<ul>
 						<li><a href="index.html">Home #1</a></li>
-						<li><a href="themes/workscout_2019/index-2.html">Home #2</a></li>
-						<li><a href="themes/workscout_2019/index-3.html">Home #3</a></li>
-						<li><a href="themes/workscout_2019/index-4.html">Home #4</a></li>
-						<li><a href="themes/workscout_2019/index-5.html">Home #5</a></li>
+						
 					</ul>
 				</li>
 				<li><a href="#">Pages</a>
 					<ul>
-						<li><a href="themes/workscout_2019/job-page.html">Job Page</a></li>
-						<li><a href="themes/workscout_2019/job-page-alt.html">Job Page Alternative</a></li>
-						<li><a href="themes/workscout_2019/resume-page.html">Resume Page</a></li>
-						<li><a href="themes/workscout_2019/shortcodes.html">Shortcodes</a></li>
-						<li><a href="themes/workscout_2019/icons.html">Icons</a></li>
-						<li><a href="index.html">Pricing Tables</a></li>
-						<li><a href="index.html">Blog</a></li>
+						
 						<li><a href="index.html">Contact</a></li>
 					</ul>
 				</li>
@@ -70,10 +62,18 @@
 					</ul>
 				</li>
 			</ul>
+			@if (Auth::guest())
+                <ul class="float-right">
+					<li><a href="/login#tab2"><i class="fa fa-user"></i> Sign Up</a></li>
+					<li><a href="/login"><i class="fa fa-lock"></i> Log In</a></li>
+				</ul>
+				@else
+            
 			<ul class="float-right">
-				<li><a href="index.html#tab2"><i class="fa fa-user"></i> Sign Up</a></li>
-				<li><a href="index.html"><i class="fa fa-lock"></i> Log In</a></li>
+				<li><a href="/home"><i class="fa fa-user"></i> My Account</a></li>
+				<li><a href="/logout"><i class="fa fa-lock"></i> Log Out</a></li>
 			</ul>
+			@endif
 		</nav>
 		<!-- Navigation -->
 		<div id="mobile-navigation">
@@ -83,9 +83,10 @@
 </div>
 </header>
 <div class="clearfix"></div>
+
 <!-- Banner
 ================================================== -->
-<div id="banner" class="with-transparent-header parallax background" style="background-image: url(themes/workscout_2019/images/banner-home-02.jpg)" data-img-width="2000" data-img-height="1330" data-diff="300">
+<div id="banner" class="with-transparent-header parallax background" style="background-image: url({{ asset('img/images/banner-home-02.jpg')}})" data-img-width="2000" data-img-height="1330" data-diff="300">
 	<div class="container">
 		<div class="sixteen columns">
 			<div class="search-container">
@@ -178,7 +179,7 @@
 			<!-- Listing -->
 			<a href="themes/workscout_2019/job-page-alt.html" class="listing full-time">
 				<div class="listing-logo">
-					<img src="themes/workscout_2019/images/job-list-logo-01.png" alt="">
+					<img src="{{ asset('img/images/job-list-logo-01.png')}}" alt="">
 				</div>
 				<div class="listing-title">
 					<h4>Marketing Coordinator - SEO / SEM Experience <span class="listing-type">Full-Time</span></h4>
@@ -193,7 +194,7 @@
 			<!-- Listing -->
 			<a href="themes/workscout_2019/job-page.html" class="listing part-time">
 				<div class="listing-logo">
-					<img src="themes/workscout_2019/images/job-list-logo-02.png" alt="">
+					<img src="{{ asset('img/images/job-list-logo-02.png')}}" alt="">
 				</div>
 				<div class="listing-title">
 					<h4>Core PHP Developer for Site Maintenance  <span class="listing-type">Part-Time</span></h4>
@@ -208,7 +209,7 @@
 			<!-- Listing -->
 			<a href="themes/workscout_2019/job-page-alt.html" class="listing full-time">
 				<div class="listing-logo">
-					<img src="themes/workscout_2019/images/job-list-logo-01.png" alt="">
+					<img src="{{ asset('img/images/job-list-logo-01.png')}}" alt="">
 				</div>
 				<div class="listing-title">
 					<h4>Restaurant Team Member - Crew  <span class="listing-type">Full-Time</span></h4>
@@ -473,21 +474,21 @@
 <!-- Wrapper / End -->
 <!-- Scripts
 ================================================== -->
-<script src="themes/workscout_2019/scripts/jquery-3.4.1.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery-migrate-3.1.0.min.js"></script>
-<script src="themes/workscout_2019/scripts/custom.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.superfish.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.themepunch.tools.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.themepunch.revolution.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.themepunch.showbizpro.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.flexslider-min.js"></script>
-<script src="themes/workscout_2019/scripts/chosen.jquery.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.magnific-popup.min.js"></script>
-<script src="themes/workscout_2019/scripts/waypoints.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.counterup.min.js"></script>
-<script src="themes/workscout_2019/scripts/jquery.jpanelmenu.js"></script>
-<script src="themes/workscout_2019/scripts/stacktable.js"></script>
-<script src="themes/workscout_2019/scripts/slick.min.js"></script>
-<script src="themes/workscout_2019/scripts/headroom.min.js"></script>
-<center><font size="2">This is the free demo result. For a full version of this website, please go to  <a href="https://www6.waybackmachinedownloader.com/website-downloader-online/scrape-all-files/">https://www6.waybackmachinedownloader.com/website-downloader-online/scrape-all-files/</a></font></center></body>
+<script src="{{ asset('js/jquery-3.4.1.min.js') }}"> </script>
+<script src="{{ asset('js/jquery-migrate-3.1.0.min.js')}}"></script>
+<script src="{{ asset('js/custom.js')}}"></script>
+<script src="{{ asset('js/jquery.superfish.js')}}"></script>
+<script src="{{ asset('js/jquery.themepunch.tools.min.js')}}"></script>
+<script src="{{ asset('js/jquery.themepunch.revolution.min.js')}}"></script>
+<script src="{{ asset('js/jquery.themepunch.showbizpro.min.js')}}"></script>
+<script src="{{ asset('js/jquery.flexslider-min.js')}}"></script>
+<script src="{{ asset('js/chosen.jquery.min.js')}}"></script>
+<script src="{{ asset('js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{ asset('js/waypoints.min.js')}}"></script>
+<script src="{{ asset('js/jquery.counterup.min.js')}}"></script>
+<script src="{{ asset('js/jquery.jpanelmenu.js')}}"></script>
+<script src="{{ asset('js/stacktable.js')}}"></script>
+<script src="{{ asset('js/slick.min.js')}}"></script>
+<script src="{{ asset('js/headroom.min.js')}}"></script>
+</body>
 </html>
