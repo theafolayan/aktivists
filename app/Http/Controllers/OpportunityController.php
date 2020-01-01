@@ -14,7 +14,10 @@ class OpportunityController extends Controller
      */
     public function index()
     {
-        //
+        $opportunities = Opportunity::latest()->paginate(5);
+
+        return view('opportunities.index', compact('opportunities'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,6 +28,7 @@ class OpportunityController extends Controller
     public function create()
     {
         //
+        return view('opportunities.create');
     }
 
     /**
@@ -35,7 +39,15 @@ class OpportunityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'name' => 'required',
+        //     'detail' => 'required',
+        // ]);
+
+        Opportunity::create($request->all());
+
+        return redirect()->route('opportunities.index')
+            ->with('success', 'Opportunity created successfully.');
     }
 
     /**
@@ -46,12 +58,14 @@ class OpportunityController extends Controller
      */
     public function show(Opportunity $opportunity)
     {
-        $opportunity = Opportunity::find($id); // fetch post from database
-        $opportunity->increment('views'); // add a new page view to our `views` column by incrementing it
+        // $opportunity = Opportunity::find($id); // fetch post from database
+        // $opportunity->increment('views'); // add a new page view to our `views` column by incrementing it
 
-        return view('oppurtunity.show', [
-            'opportunity' => $opportunity,
-        ]);
+        // return view('oppurtunity.show', [
+        //     'opportunity' => $opportunity,
+        // ]);
+
+        return view('opportunities.show', compact('opportunity'));
     }
 
     /**

@@ -64,9 +64,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        //checking for user role on registeration 
+
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'account-type' => $data['account-type'],
             'password' => Hash::make($data['password']),
         ]);
         if (isset($data['avatar'])) {

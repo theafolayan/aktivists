@@ -119,12 +119,18 @@
 				
 			</div>
 
-				<div class="switch-field">
-					<input type="radio" id="radio-one" name="switch-one" value="volunteer" checked/>
+				{{-- <div class="switch-field">
+					<input type="radio" id="radio-one" name="volunteer" value="volunteer" checked/>
 					<label for="radio-one" class="button border">Volunteer</label>
-					<input type="radio" id="radio-two" name="switch-one" value="no" />
+					<input type="radio" id="radio-two" name="organisation" value="organisation" />
 					<label for="radio-two" class="button border">Organisation</label>
-				</div>
+				</div> --}}
+				<select data-placeholder="Register As" name="account-type" class="chosen-select">
+                                
+									<option value="volunteer">Volunteer</option>
+									<option value="organisation">Organisation</option>
+									
+				</select>
 
 				<p class="form-row">
 					<input type="submit" class="button border fw margin-top-10" name="register" value="Register" />

@@ -9,6 +9,10 @@ use App\Application;
 
 class Opportunity extends Model
 {
+    protected $fillable = [
+        'title', 'email', 'opportunity-type', 'category', 'location', 'application-url', 'body', 'deadline'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class);
     }

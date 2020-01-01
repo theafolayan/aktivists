@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'HomeController@index')->name('home');
 Route::get('/logout', function(){
     Auth::logout();
     return view('index');
@@ -26,10 +26,15 @@ Route::get('/logout', function(){
 //     return redirect('/auth');
     
 // });
+
+// Route::get('/opportunities', 'OpportunityController@index');
+// Route::get('/opportunities/new', 'OpportunityController@create');
+// Route::get('/opportunities/{$opportunity}','OpportunityController@show' );
+Route::resource('opportunities', 'OpportunityController');
 Route::get('auth', function () {
     return view('auth.login');
     
 });
-Route::get('post-opportunity', function () {
-    return view('organisation.post-opportunity');
-});
+// Route::get('post-opportunity', function () {
+//     return view('organisation.post-opportunity');
+// });
