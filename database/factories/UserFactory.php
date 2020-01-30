@@ -23,6 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email_verified_at' => now(),
         'twitter' => $faker->word,
         'facebook' => $faker->word,
+        'phone' => $faker->phoneNumber(),
         'age' => $faker->numberBetween(14, 90),
         'account-type' => $faker->randomElement(['volunteer','organisation']),
         'bio' => $faker->paragraph(4, true),

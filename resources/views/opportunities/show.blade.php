@@ -9,12 +9,19 @@
 		<div class="ten columns">
 			{{-- <span><a href="browse-jobs.html">Restaurant / Food Service</a></span> --}}
 			<h2>{{$opportunity->title}} <span class="full-time">{{$opportunity->type}}</span></h2>
+			
 		</div>
+		<a href="#" class="button white"><i class="fa fa-eye"></i> {{$opportunity->views}} Views so far</a>
 
 		<div class="six columns">
-			<a href="#" class="button white"><i class="fa fa-eye"></i> {{$opportunity->views}} Views so far</a>
+			
+			<a href="#" class="button white"><i class="fa fa-star"></i>  BookMark This Opportunity</a>
+			
 		</div>
 
+			
+			
+		
 	</div>
 </div>
 

@@ -28,7 +28,7 @@
 		<div class="listings-container">
 			
         @foreach ($opportunities as $opportunity)
-        <a href="{{route('opportunities.show',$opportunity->id)}}" class="listing full-time">
+        <a href="{{route('opportunities.show',$opportunity->slug)}}" class="listing full-time">
 				<div class="listing-logo">
 					<img src="{{ $opportunity->image }}" alt="">
 				</div>

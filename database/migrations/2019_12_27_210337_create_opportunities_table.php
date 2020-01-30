@@ -18,12 +18,14 @@ class CreateOpportunitiesTable extends Migration
             $table->string('title');
             $table->string('email');
             $table->string('type');
-            $table->string('category');
+            $table->string('slug');
+            // $table->string('category');
+            $table->bigInteger('category_id');
             $table->string('location');
             $table->string('url');
             $table->text('body');
             $table->integer('views');
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('application-deadline')->default('Not Specified');
             $table->string('image');
             $table->timestamps();

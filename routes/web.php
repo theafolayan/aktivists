@@ -35,6 +35,12 @@ Route::get('auth', function () {
     return view('auth.login');
     
 });
+
+Route::get('/opportunities/categories', 'OpportunityCategoryController@create');
+Route::get('admin/opportunities/category/create', 'OpportunityCategoryController@create');
+Route::get('opportunities/categories/{category}', 'OpportunityCategoryController@show');
+Route::get('tag/{slug}', 'TagController@index');
+
 // Route::get('post-opportunity', function () {
 //     return view('organisation.post-opportunity');
 // });

@@ -24,7 +24,11 @@
 		<div class="row">
 			
 			<!-- Table-->
-			<div class="col-lg-12 col-md-12">
+		<form action="{{route('opportunities.store')}}">
+			@csrf
+
+		
+		<div class="col-lg-12 col-md-12">
 
 				<div class="dashboard-list-box margin-top-0">
 					<h4>Job Details</h4>
@@ -35,7 +39,7 @@
 						<!-- Email -->
 						<div class="form">
 							<h5>Your Email</h5>
-							<input class="search-field" name="email" type="text" placeholder="{{ Auth::user()->email }}" value="{{ Auth::user()->email }}"/>
+							<input class="search-field" name="email" type="text" placeholder="EMail"/>
 						</div>
 
 						<!-- Title -->
@@ -59,13 +63,18 @@
 						<div class="form">
 							<div class="select">
 								<h5>Category</h5>
-								<select data-placeholder="Choose Categories" class="chosen-select" multiple>
+								<select data-placeholder="Choose Categories" class="chosen-select" name ="category" multiple>
                                 
 									<option value="Writing">Writing</option>
 									<option value="Logistics">Logistics</option>
 									<option value="Teaching">Teaching</option>
-									<option value="Writers">Writers</option>
+									<option value="Administration">Administration</option>
 									<option value="Graphics">Graphics</option>
+									<option value="Legal">Legal</option>
+									<option value="I.T">I.T</option>
+									<option value="Media">Media</option>
+									<option value="welfare">Welfare</option>
+									<option value="Protocol">Protocol</option>
 									<option value="Other">Other</option>
 									
 								</select>
@@ -76,14 +85,14 @@
 						<!-- Location -->
 						<div class="form">
 							<h5>Location <span>(optional)</span></h5>
-							<input class="search-field" type="text" placeholder="e.g. London" value=""/>
+							<input name="location" class="search-field" type="text" placeholder="e.g. Lagos" value=""/>
 							<p class="note">Leave this blank if the location is not important</p>
 						</div>
 
 
 						<!-- Tags -->
 						<div class="form">
-							<h5>Job Tags <span>(optional)</span></h5>
+							<h5> Tags <span>(optional)</span></h5>
 							<input class="search-field" type="text" placeholder="e.g. PHP, Social Media, Management" value=""/>
 							<p class="note">Comma separate tags, such as required skills or technologies, for this job.</p>
 						</div>
@@ -165,13 +174,14 @@
 
 					</div>
 				</div>
-				<a href="#" class="button margin-top-30">Preview <i class="fa fa-arrow-circle-right"></i></a>
+				<input type="submit" class="button margin-top-30" value="submit"/>
 			</div>
+		</form>
 
 
 			<!-- Copyrights -->
 			<div class="col-md-12">
-				<div class="copyrights">© 2019 WorkScout. All Rights Reserved.</div>
+				<div class="copyrights">© 2019 Aktivists. All Rights Reserved.</div>
 			</div>
 		</div>
 
